@@ -1,0 +1,180 @@
+   Compiling server v0.1.0 (/Users/tyler/probe/raspi/server)
+error[E0425]: cannot find value `BORDER_CONSTANT` in module `imgproc`
+  --> src/main.rs:89:22
+   |
+89 |             imgproc::BORDER_CONSTANT,
+   |                      ^^^^^^^^^^^^^^^ not found in `imgproc`
+   |
+help: consider importing one of these items
+   |
+1  + use opencv::core::BORDER_CONSTANT;
+   |
+1  + use opencv::core::BorderTypes::BORDER_CONSTANT;
+   |
+help: if you import `BORDER_CONSTANT`, refer to it directly
+   |
+89 -             imgproc::BORDER_CONSTANT,
+89 +             BORDER_CONSTANT,
+   |
+
+error[E0425]: cannot find value `BORDER_CONSTANT` in module `imgproc`
+  --> src/main.rs:98:22
+   |
+98 |             imgproc::BORDER_CONSTANT,
+   |                      ^^^^^^^^^^^^^^^ not found in `imgproc`
+   |
+help: consider importing one of these items
+   |
+1  + use opencv::core::BORDER_CONSTANT;
+   |
+1  + use opencv::core::BorderTypes::BORDER_CONSTANT;
+   |
+help: if you import `BORDER_CONSTANT`, refer to it directly
+   |
+98 -             imgproc::BORDER_CONSTANT,
+98 +             BORDER_CONSTANT,
+   |
+
+warning: unused import: `self`
+ --> src/main.rs:6:15
+  |
+6 |     videoio::{self, VideoCapture, CAP_ANY},
+  |               ^^^^
+  |
+  = note: `#[warn(unused_imports)]` on by default
+
+error[E0308]: `?` operator has incompatible types
+  --> src/main.rs:10:25
+   |
+10 |     let p1 = Point::new(bbox.at_2d::<f32>(0, 0)?, bbox.at_2d::<f32>(0, 1)?);
+   |                         ^^^^^^^^^^^^^^^^^^^^^^^^ expected `i32`, found `&f32`
+   |
+   = note: `?` operator cannot convert from `&f32` to `i32`
+
+error[E0308]: `?` operator has incompatible types
+  --> src/main.rs:10:51
+   |
+10 |     let p1 = Point::new(bbox.at_2d::<f32>(0, 0)?, bbox.at_2d::<f32>(0, 1)?);
+   |                                                   ^^^^^^^^^^^^^^^^^^^^^^^^ expected `i32`, found `&f32`
+   |
+   = note: `?` operator cannot convert from `&f32` to `i32`
+
+error[E0308]: `?` operator has incompatible types
+  --> src/main.rs:11:25
+   |
+11 |     let p2 = Point::new(bbox.at_2d::<f32>(0, 2)?, bbox.at_2d::<f32>(0, 3)?);
+   |                         ^^^^^^^^^^^^^^^^^^^^^^^^ expected `i32`, found `&f32`
+   |
+   = note: `?` operator cannot convert from `&f32` to `i32`
+
+error[E0308]: `?` operator has incompatible types
+  --> src/main.rs:11:51
+   |
+11 |     let p2 = Point::new(bbox.at_2d::<f32>(0, 2)?, bbox.at_2d::<f32>(0, 3)?);
+   |                                                   ^^^^^^^^^^^^^^^^^^^^^^^^ expected `i32`, found `&f32`
+   |
+   = note: `?` operator cannot convert from `&f32` to `i32`
+
+error[E0308]: `?` operator has incompatible types
+  --> src/main.rs:12:25
+   |
+12 |     let p3 = Point::new(bbox.at_2d::<f32>(0, 4)?, bbox.at_2d::<f32>(0, 5)?);
+   |                         ^^^^^^^^^^^^^^^^^^^^^^^^ expected `i32`, found `&f32`
+   |
+   = note: `?` operator cannot convert from `&f32` to `i32`
+
+error[E0308]: `?` operator has incompatible types
+  --> src/main.rs:12:51
+   |
+12 |     let p3 = Point::new(bbox.at_2d::<f32>(0, 4)?, bbox.at_2d::<f32>(0, 5)?);
+   |                                                   ^^^^^^^^^^^^^^^^^^^^^^^^ expected `i32`, found `&f32`
+   |
+   = note: `?` operator cannot convert from `&f32` to `i32`
+
+error[E0308]: `?` operator has incompatible types
+  --> src/main.rs:13:25
+   |
+13 |     let p4 = Point::new(bbox.at_2d::<f32>(0, 6)?, bbox.at_2d::<f32>(0, 7)?);
+   |                         ^^^^^^^^^^^^^^^^^^^^^^^^ expected `i32`, found `&f32`
+   |
+   = note: `?` operator cannot convert from `&f32` to `i32`
+
+error[E0308]: `?` operator has incompatible types
+  --> src/main.rs:13:51
+   |
+13 |     let p4 = Point::new(bbox.at_2d::<f32>(0, 6)?, bbox.at_2d::<f32>(0, 7)?);
+   |                                                   ^^^^^^^^^^^^^^^^^^^^^^^^ expected `i32`, found `&f32`
+   |
+   = note: `?` operator cannot convert from `&f32` to `i32`
+
+error[E0277]: the `?` operator can only be applied to values that implement `Try`
+  --> src/main.rs:68:12
+   |
+68 |         if frame.empty()? {
+   |            ^^^^^^^^^^^^^^ the `?` operator cannot be applied to type `bool`
+   |
+   = help: the trait `Try` is not implemented for `bool`
+
+error[E0308]: mismatched types
+    --> src/main.rs:116:57
+     |
+116  |                 imgproc::min_enclosing_circle(&contour, &mut center, &mut radius)?;
+     |                 -----------------------------           ^^^^^^^^^^^ expected `&mut Point_<f32>`, found `&mut Point_<i32>`
+     |                 |
+     |                 arguments to this function are incorrect
+     |
+     = note: expected mutable reference `&mut Point_<f32>`
+                found mutable reference `&mut Point_<i32>`
+note: function defined here
+    --> /Users/tyler/probe/raspi/server/target/debug/build/opencv-3e897fc51b1c77a6/out/opencv/imgproc.rs:9459:9
+     |
+9459 |     pub fn min_enclosing_circle(points: &impl ToInputArray, center: &mut core::Point2f, radius: &mut f32) -> Result<()> {
+     |            ^^^^^^^^^^^^^^^^^^^^
+
+error[E0061]: this method takes 3 arguments but 2 arguments were supplied
+    --> src/main.rs:151:34
+     |
+151  |         let qr_data = qr_decoder.detect_and_decode(&frame, &mut bbox)?;
+     |                                  ^^^^^^^^^^^^^^^^^------------------- argument #3 of type `&mut _` is missing
+     |
+note: method defined here
+    --> /Users/tyler/probe/raspi/server/target/debug/build/opencv-3e897fc51b1c77a6/out/opencv/objdetect.rs:2733:6
+     |
+2733 | ...   fn detect_and_decode(&self, img: &impl ToInputArray, points: &mut impl ToOutputArray, straight_code: &mut impl ToOutputArray) -> Re...
+     |          ^^^^^^^^^^^^^^^^^
+help: provide the argument
+     |
+151  |         let qr_data = qr_decoder.detect_and_decode(&frame, &mut bbox, /* straight_code */)?;
+     |                                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+error[E0277]: `Vec<u8>` doesn't implement `std::fmt::Display`
+   --> src/main.rs:153:42
+    |
+153 |             println!("QR Code Data: {}", qr_data);
+    |                                          ^^^^^^^ `Vec<u8>` cannot be formatted with the default formatter
+    |
+    = help: the trait `std::fmt::Display` is not implemented for `Vec<u8>`
+    = note: in format strings you may be able to use `{:?}` (or {:#?} for pretty-print) instead
+    = note: this error originates in the macro `$crate::format_args_nl` which comes from the expansion of the macro `println` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0308]: mismatched types
+    --> src/main.rs:157:17
+     |
+155  |             imgproc::put_text(
+     |             ----------------- arguments to this function are incorrect
+156  |                 &mut frame,
+157  |                 &qr_data,
+     |                 ^^^^^^^^ expected `&str`, found `&Vec<u8>`
+     |
+     = note: expected reference `&str`
+                found reference `&Vec<u8>`
+note: function defined here
+    --> /Users/tyler/probe/raspi/server/target/debug/build/opencv-3e897fc51b1c77a6/out/opencv/imgproc.rs:9983:9
+     |
+9983 |     pub fn put_text(img: &mut impl ToInputOutputArray, text: &str, org: core::Point, font_face: i32, font_scale: f64, color: core::Scalar...
+     |            ^^^^^^^^
+
+Some errors have detailed explanations: E0061, E0277, E0308, E0425.
+For more information about an error, try `rustc --explain E0061`.
+warning: `server` (bin "server") generated 1 warning
+error: could not compile `server` (bin "server") due to 15 previous errors; 1 warning emitted
